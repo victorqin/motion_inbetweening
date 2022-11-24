@@ -1,0 +1,121 @@
+{
+    "name": "lafan1_detail_model_release",
+    "workspace": "..\\experiments\\{name}",
+    "datasets": {
+        "train": {
+            "bvh_folder": "..\\datasets\\lafan1",
+            "actors": [
+                "subject1",
+                "subject2",
+                "subject3",
+                "subject4"
+            ],
+            "window": 42,
+            "offset": 1,
+            "start_frame": 0
+        },
+        "train_stats": {
+            "bvh_folder": "..\\datasets\\lafan1",
+            "actors": [
+                "subject1",
+                "subject2",
+                "subject3",
+                "subject4"
+            ],
+            "window": 50,
+            "offset": 20,
+            "start_frame": 0
+        },
+        "bench_stats": {
+            "bvh_folder": "..\\datasets\\lafan1",
+            "actors": [
+                "subject1",
+                "subject2",
+                "subject3",
+                "subject4"
+            ],
+            "window": 50,
+            "offset": 20,
+            "start_frame": 0
+        },
+        "val": {
+            "bvh_folder": "..\\datasets\\lafan1",
+            "actors": [
+                "subject5"
+            ],
+            "window": 65,
+            "offset": 160,
+            "start_frame": 35
+        },
+        "benchmark": {
+            "bvh_folder": "..\\datasets\\lafan1",
+            "actors": [
+                "subject5"
+            ],
+            "window": 65,
+            "offset": 40,
+            "start_frame": 0
+        }
+    },
+    "train": {
+        "checkpoint": "checkpoint_{name}.pth",
+        "checkpoint_interval": 1000,
+        "total_epoch": 2000,
+        "batch_size": 32,
+        "lr": 0.025,
+        "lr_warmup_iterations": 8000,
+        "context_len": 10,
+        "min_trans": 5,
+        "max_trans": 30,
+        "midway_targets_amount": 0.1,
+        "midway_targets_p": 0.5
+    },
+    "model": {
+        "d_mask": 1,
+        "constrained_slices": [
+            [
+                null,
+                null
+            ]
+        ],
+        "n_layer": 6,
+        "n_head": 8,
+        "d_model": 512,
+        "d_head": 64,
+        "d_pff_inner": 512,
+        "d_encoder_in": 136,
+        "d_encoder_h": 512,
+        "d_decoder_h": 512,
+        "d_out": 139,
+        "dropout": 0.0,
+        "dropout_iterations": 150000,
+        "pre_lnorm": true,
+        "atten_bias": false,
+        "max_seq_len": 65
+    },
+    "indices": {
+        "r_start_idx": 0,
+        "r_end_idx": 132,
+        "p_start_idx": 132,
+        "p_end_idx": 135,
+        "c_start_idx": 135,
+        "c_end_idx": 139
+    },
+    "weights": {
+        "rw": 1.0,
+        "cw": 0.05,
+        "pw": 0.02,
+        "sw": 0.005,
+        "dw": 0.0,
+        "fw": 0.05
+    },
+    "visdom": {
+        "env": "Motion Inbetween - {name}",
+        "interval": 500,
+        "interval_eval": 2000,
+        "eval_trans": [
+            45,
+            30
+        ]
+    }
+}
