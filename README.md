@@ -129,7 +129,7 @@ Examples:
    Context Transformer only, **WITH** post-processing:
 
    ```bash
-   python eval_context_model.py lafan1_context_model_constraints -t 5 -p
+   python eval_context_model.py lafan1_context_model -t 5 -p
    ```
 
    ```bash
@@ -147,7 +147,7 @@ Examples:
 2. Generate 30 transition frames based on the clip with index=100 in LAFAN1 benchmark dataset with post-processing:
 
    ```bash
-   python eval_context_model.py lafan1_context_model_constraints -t 30 -i 100 -p
+   python eval_context_model.py lafan1_context_model -t 30 -i 100 -p
    ```
 
    You should get the predicted transition and the ground truth in JSON format under the `scripts` folder:
